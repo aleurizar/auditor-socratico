@@ -1,0 +1,23 @@
+{
+  "name": "auditor-socratico",
+  "owner": {
+    "name": "aleurizar",
+    "url": "https://github.com/aleurizar"
+  },
+  "metadata": {
+    "description": "Socratic fact-checking skill for AI agents: audits the veracity of AI responses and claims through critical questioning and web triangulation",
+    "version": "1.0.0",
+    "repository": "https://github.com/aleurizar/auditor-socratico"
+  },
+  "plugins": [
+    {
+      "name": "auditor-socratico",
+      "description": "Socratic Fact Auditor skill: verifies the truthfulness of claims and AI responses using critical questioning, web search triangulation, and short-term memory of accepted/rejected premises",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/auditor-socratico"
+      ]
+    }
+  ]
+}

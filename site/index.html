@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditor Socrático | Skill de verificación de hechos para IA</title>
+    <meta name="description" content="Skill que convierte a cualquier agente de IA en un Auditor Socrático de Hechos: verifica la veracidad de respuestas con método socrático y triangulación web.">
+    <meta name="theme-color" content="#09090b">
+    <link rel="canonical" href="https://github.com/aleurizar/auditor-socratico">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/aleurizar/auditor-socratico">
+    <meta property="og:title" content="Auditor Socrático | Verificación de hechos para IA">
+    <meta property="og:description" content="Skill que convierte a cualquier agente de IA en un Auditor Socrático de Hechos.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9C%94%EF%B8%8F</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    display: ['"Instrument Serif"', 'Georgia', 'serif'],
+                    body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+                    mono: ['"DM Mono"', 'monospace'],
+                },
+            }
+        }
+    }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
+        }
+        .hero-glow {
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.1), transparent),
+                radial-gradient(ellipse 50% 60% at 100% 0%, rgba(139, 92, 246, 0.06), transparent);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed top-0 w-full z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-display text-xl text-zinc-100">Auditor Socrático</a>
+            <a href="https://github.com/aleurizar/auditor-socratico" target="_blank" rel="noopener"
+               class="flex items-center gap-2 text-sm text-zinc-400 hover:text-zinc-100 transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span class="hidden sm:inline">GitHub</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="hero-glow pt-32 pb-24 sm:pt-40 sm:pb-32">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-zinc-900 border border-zinc-800 rounded-full mb-8">
+                    <span class="font-mono text-xs text-amber-400">auditor-socratico</span>
+                    <span class="text-xs text-zinc-500">by aleurizar</span>
+                </div>
+                <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-6">
+                    Tu IA responde con seguridad.<br>
+                    <span class="italic text-amber-400">¿La creés?</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Un skill que convierte a cualquier agente de IA en un Auditor Socrático de Hechos:
+                    examen crítico, preguntas socráticas y triangulación web antes de dar nada por cierto.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                    <a href="#install"
+                       class="inline-flex items-center justify-center px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold rounded-lg transition-colors text-base">
+                        Instalar el Skill
+                    </a>
+                    <a href="https://github.com/aleurizar/auditor-socratico" target="_blank" rel="noopener"
+                       class="inline-flex items-center justify-center px-8 py-3.5 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-zinc-100 rounded-lg transition-colors text-base">
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-8 sm:gap-12 text-center">
+                    <div>
+                        <div class="font-display text-3xl sm:text-4xl text-zinc-100">5</div>
+                        <div class="text-sm text-zinc-500 mt-1 font-mono">reglas de auditoría</div>
+                    </div>
+                    <div class="hidden sm:block w-px bg-zinc-800"></div>
+                    <div>
+                        <div class="font-display text-3xl sm:text-4xl text-zinc-100">3</div>
+                        <div class="text-sm text-zinc-500 mt-1 font-mono">componentes</div>
+                    </div>
+                    <div class="hidden sm:block w-px bg-zinc-800"></div>
+                    <div>
+                        <div class="font-display text-3xl sm:text-4xl text-zinc-100">4</div>
+                        <div class="text-sm text-zinc-500 mt-1 font-mono">veredictos</div>
+                    </div>
+                    <div class="hidden sm:block w-px bg-zinc-800"></div>
+                    <div>
+                        <div class="font-display text-3xl sm:text-4xl text-zinc-100">MIT</div>
+                        <div class="text-sm text-zinc-500 mt-1 font-mono">license</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 border-y border-zinc-800/50">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                    <span class="text-sm text-zinc-500 whitespace-nowrap">Works with</span>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded font-mono text-xs text-zinc-300">Claude Code</span>
+                        <span class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded font-mono text-xs text-zinc-300">Codex CLI</span>
+                        <span class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded font-mono text-xs text-zinc-300">Cursor</span>
+                        <span class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded font-mono text-xs text-zinc-300">Windsurf</span>
+                        <span class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded font-mono text-xs text-zinc-300">Cline</span>
+                        <span class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded font-mono text-xs text-zinc-300">Any .md agent</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 sm:py-32">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl mb-8">El problema</h2>
+                <div class="space-y-6 text-lg text-zinc-400 leading-relaxed">
+                    <p>
+                        Las IAs son cada vez más convincentes. Responden con datos, fechas y nombres
+                        que suenan exactos... y a veces son inventados. La mayoría de los usuarios
+                        acepta lo que lee porque está bien redactado.
+                    </p>
+                    <p>
+                        La verificación externa no es opcional: una afirmación sin fuente contrastada
+                        es una hipótesis, no un hecho.
+                    </p>
+                    <p class="text-zinc-100 font-medium">
+                        Auditor Socrático corrige eso. No acepta nada como verdadero, pregunta,
+                        contrasta con fuentes reales y te da un veredicto con evidencia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="protocol" class="py-24 sm:py-32 border-t border-zinc-800/50">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl mb-4">Un protocolo de verificación en 5 pasos</h2>
+                </div>
+                <div class="grid md:grid-cols-5 gap-4">
+                    <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-xl p-6">
+                        <div class="font-mono text-amber-400 text-sm mb-3">01</div>
+                        <h3 class="font-medium mb-2">Extraer y reafirmar</h3>
+                        <p class="text-sm text-zinc-400">Cita la afirmación textual y confirmá que la captaste bien.</p>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-xl p-6">
+                        <div class="font-mono text-amber-400 text-sm mb-3">02</div>
+                        <h3 class="font-medium mb-2">Preguntas socráticas</h3>
+                        <p class="text-sm text-zinc-400">2-5 preguntas que exponen contradicciones, lagunas y sesgos.</p>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-xl p-6">
+                        <div class="font-mono text-amber-400 text-sm mb-3">03</div>
+                        <h3 class="font-medium mb-2">Triangulación web</h3>
+                        <p class="text-sm text-zinc-400">Dos fuentes independientes académicas u oficiales, con citas.</p>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-xl p-6">
+                        <div class="font-mono text-amber-400 text-sm mb-3">04</div>
+                        <h3 class="font-medium mb-2">Veredicto</h3>
+                        <p class="text-sm text-zinc-400">Supported, Partially, Contradicted o Unverified.</p>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-xl p-6">
+                        <div class="font-mono text-amber-400 text-sm mb-3">05</div>
+                        <h3 class="font-medium mb-2">Resolución socrática</h3>
+                        <p class="text-sm text-zinc-400">Si hay discrepancia, te guía con una pregunta hacia el error.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="install" class="py-24 sm:py-32 border-t border-zinc-800/50">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl mb-4">Instalación en segundos.</h2>
+                    <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+                        Un comando. Funciona con cualquier agente que lea archivos <span class="font-mono text-zinc-300">.md</span>.
+                    </p>
+                </div>
+
+                <div class="space-y-6 max-w-2xl mx-auto">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-mono text-xs text-amber-400">Claude Code Plugin</span>
+                            <span class="text-xs text-zinc-600">(recomendado)</span>
+                        </div>
+                        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                            <div class="text-zinc-400"><span class="text-amber-400">$</span> /plugin marketplace add aleurizar/auditor-socratico</div>
+                            <div class="text-zinc-400"><span class="text-amber-400">$</span> /plugin install auditor-socratico</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="font-mono text-xs text-zinc-400 mb-2">CLI</div>
+                        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                            <div class="text-zinc-400"><span class="text-amber-400">$</span> npx add-skill aleurizar/auditor-socratico</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="font-mono text-xs text-zinc-400 mb-2">Manual</div>
+                        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                            <div class="text-zinc-400"><span class="text-amber-400">$</span> git clone https://github.com/aleurizar/auditor-socratico.git</div>
+                            <div class="text-zinc-400"><span class="text-amber-400">$</span> cp -r auditor-socratico/skills/* .claude/skills/</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="https://github.com/aleurizar/auditor-socratico" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold rounded-lg transition-colors text-base">
+                        View on GitHub
+                    </a>
+                    <p class="text-sm text-zinc-600 mt-4">MIT License. Free forever.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-zinc-800/50 py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="font-display text-lg text-zinc-400">Auditor Socrático</div>
+            <div class="flex items-center gap-6 text-sm text-zinc-600">
+                <a href="https://github.com/aleurizar/auditor-socratico" class="hover:text-zinc-400 transition-colors">GitHub</a>
+                <span>MIT License</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
